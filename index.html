@@ -58,17 +58,17 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 10px;
+            padding: 12px;
             overflow-x: hidden;
         }
 
         .container {
             background-color: var(--container-bg);
-            padding: 20px;
-            border-radius: 24px;
+            padding: 16px;
+            border-radius: 20px;
             box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
             width: 100%;
-            max-width: 450px;
+            max-width: 400px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -76,7 +76,7 @@
         }
 
         h1 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 800;
             margin-bottom: 14px;
             background: linear-gradient(to right, #ffffff, #94a3b8);
@@ -88,16 +88,16 @@
         .screen.active { display: flex; flex-direction: column; align-items: center; }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             text-align: left;
             width: 100%;
         }
 
         label {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: #94a3b8;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -105,14 +105,13 @@
 
         input {
             width: 100%;
-            padding: 14px;
-            border-radius: 12px;
+            padding: 12px;
+            border-radius: 10px;
             border: 1px solid #334155;
             background-color: #1e293b;
             color: white;
             font-size: 1rem;
             outline: none;
-            transition: border-color 0.2s;
         }
 
         input:focus { border-color: var(--accent-color); }
@@ -123,55 +122,50 @@
             background-color: var(--accent-color);
             color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
             box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
-            transition: transform 0.1s;
         }
 
         #roomDisplay {
-            font-size: 0.95rem;
-            margin-bottom: 12px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
             color: #94a3b8;
         }
 
         .status-bar {
             width: 100%;
             background-color: #192237;
-            padding: 12px;
-            border-radius: 12px;
-            margin-bottom: 16px;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 14px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             border: 1px solid #23314f;
         }
 
         .board-wrapper {
             width: 100%;
-            max-width: 390px;
-            margin: 0 auto;
-            aspect-ratio: 1 / 1;
             background-color: var(--board-border);
-            padding: 8px;
-            border-radius: 18px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6), inset 0 2px 4px rgba(255,255,255,0.05);
+            padding: 6px;
+            border-radius: 14px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
             box-sizing: border-box;
         }
 
         #board {
             display: grid;
             grid-template-columns: repeat(8, 1fr);
-            grid-template-rows: repeat(8, 1fr);
             width: 100%;
-            height: 100%;
             user-select: none;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
         }
 
         .cell {
+            aspect-ratio: 1 / 1;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -182,30 +176,28 @@
         .cell.dark { background-color: var(--board-dark); }
         
         .cell.selected {
-            box-shadow: inset 0 0 0 4px var(--selected-color);
+            box-shadow: inset 0 0 0 3px var(--selected-color);
             background-color: #d97706 !important;
             z-index: 5;
         }
         
         .cell.highlight-move::after {
             content: '';
-            width: 22px;
-            height: 22px;
-            background-color: rgba(16, 185, 129, 0.8);
+            width: 18px;
+            height: 18px;
+            background-color: rgba(16, 185, 129, 0.85);
             border-radius: 50%;
             position: absolute;
-            box-shadow: 0 0 10px var(--accent-color);
-            animation: pulse 1.4s infinite ease-in-out;
+            box-shadow: 0 0 8px var(--accent-color);
             z-index: 4;
         }
 
         .piece {
-            width: 82%;
-            height: 82%;
+            width: 80%;
+            height: 80%;
             border-radius: 50%;
             position: relative;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6), inset 0 -4px 6px rgba(0,0,0,0.5);
-            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6), inset 0 -3px 4px rgba(0,0,0,0.5);
             z-index: 3;
         }
 
@@ -214,7 +206,7 @@
             position: absolute;
             top: 15%; left: 15%; right: 15%; bottom: 15%;
             border-radius: 50%;
-            border: 2px dashed rgba(255, 255, 255, 0.12);
+            border: 1.5px dashed rgba(255, 255, 255, 0.15);
         }
 
         .piece.red { background: var(--red-piece); border: 1px solid #660000; }
@@ -225,31 +217,10 @@
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 1.2rem;
-            background: rgba(245, 158, 11, 0.25);
-            width: 70%; height: 70%;
-            border-radius: 50%;
+            font-size: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(245, 158, 11, 0.5);
-            box-shadow: inset 0 2px 4px rgba(255,255,255,0.2);
-            filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
-        }
-
-        .cell.selected .piece { transform: scale(1.12) translateY(-2px); }
-
-        @keyframes pulse {
-            0% { transform: scale(0.85); opacity: 0.6; }
-            50% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(0.85); opacity: 0.6; }
-        }
-
-        @media (max-width: 400px) {
-            .container { padding: 14px; }
-            h1 { font-size: 1.4rem; }
-            .board-wrapper { padding: 4px; }
-            .cell.highlight-move::after { width: 16px; height: 16px; }
         }
     </style>
     <script type="importmap">
@@ -263,7 +234,7 @@
 
     <script type="module">
         import { initializeApp } from "firebase/app";
-        import { getDatabase, ref, set, onValue, update, get } from "firebase/database";
+        import { getDatabase, ref, set, onValue, update, runTransaction } from "firebase/database";
 
         const firebaseConfig = {
             apiKey: "AIzaSyC1VqevNvvPYLcLxKlG2hXuQxk5RmgXmfo",
@@ -293,14 +264,14 @@
         const boardElement = document.getElementById('board');
 
         const initialBoard = [
-            [null, 'b', null, 'b', null, 'b', null, 'b'],
-            ['b', null, 'b', null, 'b', null, 'b', null],
-            [null, 'b', null, 'b', null, 'b', null, 'b'],
-            [null, null, null, null, null, null, null, null],
-            [null, null, null, null, null, null, null, null],
-            ['r', null, 'r', null, 'r', null, 'r', null],
-            [null, 'r', null, 'r', null, 'r', null, 'r'],
-            ['r', null, 'r', null, 'r', null, 'r', null]
+            ["", "b", "", "b", "", "b", "", "b"],
+            ["b", "", "b", "", "b", "", "b", ""],
+            ["", "b", "", "b", "", "b", "", "b"],
+            ["", "", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", "", ""],
+            ["r", "", "r", "", "r", "", "r", ""],
+            ["", "r", "", "r", "", "r", "", "r"],
+            ["r", "", "r", "", "r", "", "r", ""]
         ];
 
         joinBtn.addEventListener('click', () => {
@@ -310,48 +281,70 @@
             connectToRoom(room);
         });
 
+        // CORREÇÃO CRÍTICA: Garante que o objeto do Firebase vire uma matriz 8x8 perfeita sem pular linhas vazias
+        function normalizeBoard(firebaseBoard) {
+            let normalized = [];
+            for (let r = 0; r < 8; r++) {
+                normalized[r] = [];
+                for (let c = 0; c < 8; c++) {
+                    normalized[r][c] = (firebaseBoard && firebaseBoard[r] && firebaseBoard[r][c]) ? firebaseBoard[r][c] : "";
+                }
+            }
+            return normalized;
+        }
+
         function connectToRoom(roomName) {
             const roomRef = ref(db, 'rooms/' + roomName);
 
-            get(roomRef).then((snapshot) => {
-                const currentData = snapshot.val();
-                
+            runTransaction(roomRef, (currentData) => {
                 if (currentData === null) {
-                    playerSide = 'red';
-                    return set(roomRef, {
+                    return {
                         board: initialBoard,
                         turn: 'red',
                         playerRed: true,
                         playerBlack: false
-                    });
+                    };
                 } else if (currentData.playerBlack === false) {
-                    playerSide = 'black';
-                    return update(roomRef, { playerBlack: true });
-                } else {
-                    playerSide = 'spectator';
-                    return Promise.resolve();
+                    currentData.playerBlack = true;
+                    return currentData;
                 }
-            }).then(() => {
+                return; 
+            }).then((result) => {
+                const snapshot = result.snapshot.val();
+                
+                if (result.committed && snapshot.playerRed && !snapshot.playerBlack) {
+                    playerSide = 'red';
+                } else if (snapshot.playerBlack && playerSide !== 'red') {
+                    playerSide = 'black';
+                } else if (!playerSide) {
+                    playerSide = 'spectator';
+                }
+
                 menuScreen.classList.remove('active');
                 gameScreen.classList.add('active');
 
-                onValue(roomRef, (snapshot) => {
-                    const data = snapshot.val();
+                onValue(roomRef, (snap) => {
+                    const data = snap.val();
                     if (data) {
-                        gameState = data.board;
+                        // Normaliza a matriz antes de renderizar para impedir o travamento e o congelamento visual
+                        gameState = normalizeBoard(data.board);
                         currentTurn = data.turn;
-                        roomDisplay.innerHTML = `Sala: <b>${roomName.toUpperCase()}</b> | Você: <span style="color:${playerSide==='red'?'#ff4d4d':'#94a3b8'}">${playerSide === 'red' ? 'Vermelho 🔴' : playerSide === 'black' ? 'Preto ⚫' : 'Espectador 👁️'}</span>`;
+                        
+                        let sideText = "Espectador 👁️";
+                        let sideColor = "#94a3b8";
+                        if (playerSide === 'red') { sideText = "Vermelho 🔴"; sideColor = "#ff4d4d"; }
+                        if (playerSide === 'black') { sideText = "Preto ⚫"; sideColor = "#64748b"; }
+
+                        roomDisplay.innerHTML = `Sala: <b>${roomName.toUpperCase()}</b> | Você: <span style="color:${sideColor}">${sideText}</span>`;
                         renderBoard();
                         updateStatus();
                     }
-                }, (error) => handleFirebaseError(error));
-            }).catch((err) => handleFirebaseError(err));
-        }
-
-        function handleFirebaseError(error) {
-            console.error(error);
-            statusBar.innerText = "Erro nas Regras do Firebase ou Conexão!";
-            statusBar.style.color = "#ff4d4d";
+                });
+            }).catch(err => {
+                console.error(err);
+                statusBar.innerText = "Erro ao conectar com o servidor!";
+                statusBar.style.color = "#ff4d4d";
+            });
         }
 
         function updateStatus() {
@@ -361,17 +354,16 @@
                 return;
             }
             if (currentTurn === playerSide) {
-                statusBar.innerText = "Seu turno! Jogue com inteligência.";
+                statusBar.innerText = "Sua vez! Faça sua jogada.";
                 statusBar.style.color = "#10b981";
             } else {
-                statusBar.innerText = `Oponente pensando (${currentTurn === 'red' ? 'Vermelho 🔴' : 'Preto ⚫'})...`;
+                statusBar.innerText = `Aguardando oponente (${currentTurn === 'red' ? 'Vermelho 🔴' : 'Preto ⚫'})...`;
                 statusBar.style.color = "#94a3b8";
             }
         }
 
         function renderBoard() {
             boardElement.innerHTML = "";
-            if (!gameState || gameState.length === 0) return;
             
             for (let r = 0; r < 8; r++) {
                 for (let c = 0; c < 8; c++) {
@@ -381,7 +373,7 @@
                     cell.dataset.col = c;
 
                     const pieceData = gameState[r][c];
-                    if (pieceData) {
+                    if (pieceData && pieceData !== "") {
                         const piece = document.createElement('div');
                         piece.classList.add('piece');
                         if (pieceData.startsWith('r')) piece.classList.add('red');
@@ -409,7 +401,7 @@
             if (playerSide === 'spectator' || currentTurn !== playerSide) return;
             const clickedPiece = gameState[row][col];
 
-            if (clickedPiece && ((playerSide === 'red' && clickedPiece.startsWith('r')) || (playerSide === 'black' && clickedPiece.startsWith('b')))) {
+            if (clickedPiece && clickedPiece !== "" && ((playerSide === 'red' && clickedPiece.startsWith('r')) || (playerSide === 'black' && clickedPiece.startsWith('b')))) {
                 selectedPiece = { row, col, type: clickedPiece };
                 validMoves = calculateMoves(row, col, clickedPiece);
                 renderBoard();
@@ -429,10 +421,10 @@
         function calculateMoves(row, col, type) {
             const moves = [];
             const isKing = type.endsWith('K');
-            const rowDirs = [-1, 1];
             const colDirs = [-1, 1];
 
             if (isKing) {
+                const rowDirs = [-1, 1];
                 rowDirs.forEach(rd => {
                     colDirs.forEach(cd => {
                         let nextR = row + rd;
@@ -441,33 +433,20 @@
 
                         while (nextR >= 0 && nextR < 8 && nextC >= 0 && nextC < 8) {
                             const target = gameState[nextR][nextC];
-
                             if (!pieceInWay) {
-                                if (!target) {
+                                if (!target || target === "") {
                                     moves.push({ targetRow: nextR, targetCol: nextC, isJump: false });
                                 } else {
                                     const isOpponent = type.startsWith('r') ? target.startsWith('b') : target.startsWith('r');
-                                    if (isOpponent) {
-                                        pieceInWay = { r: nextR, c: nextC };
-                                    } else {
-                                        break; 
-                                    }
+                                    if (isOpponent) pieceInWay = { r: nextR, c: nextC };
+                                    else break;
                                 }
                             } else {
-                                if (!target) {
-                                    moves.push({ 
-                                        targetRow: nextR, 
-                                        targetCol: nextC, 
-                                        isJump: true, 
-                                        capturedRow: pieceInWay.r, 
-                                        capturedCol: pieceInWay.c 
-                                    });
-                                } else {
-                                    break; 
-                                }
+                                if (!target || target === "") {
+                                    moves.push({ targetRow: nextR, targetCol: nextC, isJump: true, capturedRow: pieceInWay.r, capturedCol: pieceInWay.c });
+                                } else break;
                             }
-                            nextR += rd;
-                            nextC += cd;
+                            nextR += rd; nextC += cd;
                         }
                     });
                 });
@@ -480,21 +459,15 @@
 
                         if (nextR >= 0 && nextR < 8 && nextC >= 0 && nextC < 8) {
                             const target = gameState[nextR][nextC];
-                            if (!target) {
+                            if (!target || target === "") {
                                 moves.push({ targetRow: nextR, targetCol: nextC, isJump: false });
                             } else {
                                 const isOpponent = type.startsWith('r') ? target.startsWith('b') : target.startsWith('r');
                                 if (isOpponent) {
                                     const jumpR = nextR + rd;
                                     const jumpC = nextC + cd;
-                                    if (jumpR >= 0 && jumpR < 8 && jumpC >= 0 && jumpC < 8 && !gameState[jumpR][jumpC]) {
-                                        moves.push({ 
-                                            targetRow: jumpR, 
-                                            targetCol: jumpC, 
-                                            isJump: true, 
-                                            capturedRow: nextR, 
-                                            capturedCol: nextC 
-                                        });
+                                    if (jumpR >= 0 && jumpR < 8 && jumpC >= 0 && jumpC < 8 && (!gameState[jumpR][jumpC] || gameState[jumpR][jumpC] === "")) {
+                                        moves.push({ targetRow: jumpR, targetCol: jumpC, isJump: true, capturedRow: nextR, capturedCol: nextC });
                                     }
                                 }
                             }
@@ -502,31 +475,27 @@
                     });
                 });
             }
-
             const jumpMoves = moves.filter(m => m.isJump);
             return jumpMoves.length > 0 ? jumpMoves : moves;
         }
 
         function executeMove(move) {
             let piece = gameState[selectedPiece.row][selectedPiece.col];
-            
             gameState[move.targetRow][move.targetCol] = piece;
-            gameState[selectedPiece.row][selectedPiece.col] = null;
+            gameState[selectedPiece.row][selectedPiece.col] = "";
 
-            if (move.isJump) {
-                gameState[move.capturedRow][move.capturedCol] = null;
-            }
+            if (move.isJump) gameState[move.capturedRow][move.capturedCol] = "";
 
             if (playerSide === 'red' && move.targetRow === 0) gameState[move.targetRow][move.targetCol] = 'rK';
             if (playerSide === 'black' && move.targetRow === 7) gameState[move.targetRow][move.targetCol] = 'bK';
 
             const nextTurn = playerSide === 'red' ? 'black' : 'red';
-
             const roomRef = ref(db, 'rooms/' + currentRoom);
+            
             update(roomRef, {
                 board: gameState,
                 turn: nextTurn
-            }).catch(err => handleFirebaseError(err));
+            });
 
             selectedPiece = null;
             validMoves = [];
